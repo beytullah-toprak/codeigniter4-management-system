@@ -24,7 +24,7 @@ class UserEntity extends Entity
 
     public function getID()
     {
-        return $this->attributes['id'];
+       // return $this->attributes['id'];
     }
 
     public function getGroupID()
@@ -96,9 +96,9 @@ class UserEntity extends Entity
         return $this->attributes['deleted_at'];
     }
 
-    public function setGroupID(int $group_id)
+    public function setGroupID($group_id)
     {
-        $this->attributes['group_id'] = $group_id;
+        $this->attributes['group_id'] = $group_id ?? NULL;
     }
 
     public function setFirstName(string $first_name)

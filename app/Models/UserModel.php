@@ -41,7 +41,6 @@ class UserModel extends Model
 
     // Validation
     protected $validationRules      = [
-        'group_id' => 'required|numeric',
         'first_name' => 'required|string|min_length[3]|max_length[100]',
         'surname' => 'required|string|min_length[2]|max_length[100]',
         'email' => 'required|valid_email|is_unique[users.email,id,{id}]',
@@ -52,46 +51,42 @@ class UserModel extends Model
         'status' => 'required|in_list[' . USER_ACTIVE . ',' . USER_PENDING . ',' . USER_PASSIVE . ']',
     ];
     protected $validationMessages   = [
-        'group_id' => [
-            'request' => 'User.model.validation.group_id.request',
-            'numeric' => 'User.model.validation.group_id.numeric',
-        ],
         'first_name' => [
-            'request' => 'User.model.validation.first_name.request',
+            'required' => 'User.model.validation.first_name.required',
             'string' => 'User.model.validation.first_name.string',
             'min_length' => 'User.model.validation.first_name.min_length',
             'max_length' => 'User.model.validation.first_name.max_length',
         ],
         'surname' => [
-            'request' => 'User.model.validation.surname.request',
+            'required' => 'User.model.validation.surname.required',
             'string' => 'User.model.validation.surname.string',
             'min_length' => 'User.model.validation.surname.min_length',
             'max_length' => 'User.model.validation.surname.max_length',
         ],
         'email' => [
-            'request' => 'User.model.validation.email.request',
+            'required' => 'User.model.validation.email.required',
             'valid_email' => 'User.model.validation.email.valid_email',
             'is_unique' => 'User.model.validation.email.is_unique',
         ],
         'password' => [
-            'request' => 'User.model.validation.password.request',
+            'required' => 'User.model.validation.password.required',
         ],
         'verify_key' => [
-            'request' => 'User.model.validation.verify_key.request',
+            'required' => 'User.model.validation.verify_key.required',
             'alpha' => 'User.model.validation.verify_key.alpha',
         ],
         'verify_code' => [
-            'request' => 'User.model.validation.verify_code.request',
+            'required' => 'User.model.validation.verify_code.required',
             'numeric' => 'User.model.validation.verify_code.numeric',
             'min_length' => 'User.model.validation.verify_code.min_length',
         ],
         'bio' => [
-            'request' => 'User.model.validation.bio.request',
+            'required' => 'User.model.validation.bio.required',
             'string' => 'User.model.validation.bio.string',
             'max_length' => 'User.model.validation.bio.max_length',
         ],
         'status' => [
-            'request' => 'User.model.validation.status.request',
+            'required' => 'User.model.validation.status.required',
             'in_list' => 'User.model.validation.status.in_list',
         ],
     ];

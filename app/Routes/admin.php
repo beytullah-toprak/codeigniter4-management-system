@@ -3,13 +3,14 @@
 use CodeIgniter\Router\RouteCollection;
 
 /**
- * Admin panel routes
+ * Admin web routes
  *
  * @var RouteCollection $routes
  */
-$routes->group('admin', [
-    'namespace' => 'App\Controllers\Admin',
-    // 'filter' => 'auth', // auth filter ekleyince aç
-], static function ($routes) {
-    // $routes->get('/', 'Dashboard::index');
+
+$routes->group('{locale}/admin', [
+    'namespace' => 'App\Controllers\Backend',
+    ],  function ($routes) {
+        
+    $routes->match(['get', 'post'], 'register', 'RegisterController::index', ['as' => 'admin_register']);
 });
